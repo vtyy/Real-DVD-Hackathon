@@ -4,37 +4,8 @@ import {ReactComponent as PrivateUntriggered} from './Assets/Private (Untriggere
 import {ReactComponent as PrivateTriggered} from './Assets/Private (Triggered).svg';
 import {ReactComponent as PublicUntriggered} from './Assets/Public (Untriggered).svg';
 import {ReactComponent as PublicTriggered} from './Assets/Public (Triggered).svg';
+import {ReactComponent as CreateURL} from './Assets/Create URL (Untriggered).svg';
 
-/*
-class Private extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {showMe: true};
-    
-  } 
-  render() {
-    if(this.state.showMe) { 
-        return (<a onClick={() => this.setState({showMe: false})}><PrivateUntriggered/></a>);
-    } else { 
-        return (<a onClick={() => this.setState({showMe: true})}><PrivateTriggered/></a>);
-    } 
-  }
-}
-class Public extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {showMe: true};
-    
-  } 
-  render() {
-    if(this.state.showMe) { 
-        return (<a onClick={() => this.setState({showMe: false})}><PublicUntriggered/></a>);
-    } else { 
-        return (<a onClick={() => this.setState({showMe: true})}><PublicTriggered/></a>);
-    } 
-  }
-}
-*/
 class URLP extends React.Component{
   constructor(props) {
     super(props);
@@ -59,7 +30,7 @@ class App extends React.Component{
 
   render() {
     return (
-      <div class="container">
+      <div class="container" >
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></link>
         <h1 style={{textAlignVertical: "center",textAlign: "center",}}>Create your custom URL now!</h1>
         <p></p>
@@ -93,10 +64,12 @@ class App extends React.Component{
           <button type="button" class="btn btn-success">Productivity</button>
         </div>
         <div class="btn-group" role="group" style={{display: 'flex', alignItems: "center",}}>
-          <button type="button"><PrivateTriggered className='PrivateTriggered' /></button>
+          <button type="button" class="btn btn-alert"></button>
           <button type="button" class="btn btn-warning">Webinar</button>
           <button type="button" class="btn btn-info">Other</button>
         </div>
+        <p/>
+        <div style={{textAlignVertical: "center",textAlign: "center",}}><CreateURL/></div>
       </div>
     );
   }

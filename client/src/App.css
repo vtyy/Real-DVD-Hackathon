@@ -1,5 +1,14 @@
+@font-face {
+  font-family: SFProDisplay;
+  src: './Assets/FontsFree-Net-SFProDisplay-Medium.ttf' format("truetype");
+}
+* {
+  font-family: SFProDisplay;
+}
 .App {
+  font-family: SFProDisplay;
   text-align: center;
+  
 }
 
 .App-logo {
