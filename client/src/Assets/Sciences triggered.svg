@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="202" height="58" viewBox="0 0 202 58">
+  <defs>
+    <filter id="Rectangle_2" x="0" y="0" width="202" height="58" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_101" data-name="Group 101" transform="translate(-219 -900)">
+    <g transform="matrix(1, 0, 0, 1, 219, 900)" filter="url(#Rectangle_2)">
+      <rect id="Rectangle_2-2" data-name="Rectangle 2" width="184" height="40" rx="20" transform="translate(9 6)" fill="#2dc76d"/>
+    </g>
+    <circle id="Mask" cx="15" cy="15" r="15" transform="translate(232 910)" fill="#a3ecc1"/>
+    <g id="test-tube" transform="translate(225.825 904.932)">
+      <g id="Group_87" data-name="Group 87" transform="translate(11.175 10.8)">
+        <path id="Path_429" data-name="Path 429" d="M16.745,11.047l-5.325,5.325a.839.839,0,1,0,1.186,1.186l.043-.043,11.44,11.44a3.707,3.707,0,0,0,5.243-5.243L17.892,12.277l.043-.043a.84.84,0,0,0-1.19-1.186ZM28.2,27.829a2.112,2.112,0,0,1-2.981,0L22.1,24.711l5.824-.137.275.275A2.112,2.112,0,0,1,28.2,27.829Zm-1.834-4.815-5.824.137L13.78,16.389l2.981-2.981Z" transform="translate(-11.175 -10.8)" fill="#fff"/>
+      </g>
+    </g>
+    <text id="Project_meeting" data-name="Project meeting" transform="translate(276 932)" fill="#e9f9f0" font-size="15" font-family="SegoeUI, Segoe UI" letter-spacing="0.028em"><tspan x="0" y="0">Sciences</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="58" viewBox="0 0 150 58">
+  <defs>
+    <filter id="Rectangle_2" x="0" y="0" width="150" height="58" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_109" data-name="Group 109" transform="translate(-700 -750)">
+    <g transform="matrix(1, 0, 0, 1, 700, 750)" filter="url(#Rectangle_2)">
+      <rect id="Rectangle_2-2" data-name="Rectangle 2" width="132" height="40" rx="20" transform="translate(9 6)" fill="#ffe2dc"/>
+    </g>
+    <text id="Webinar" transform="translate(760 783)" fill="#ff7052" font-size="15" font-family="SegoeUI, Segoe UI" letter-spacing="0.028em"><tspan x="0" y="0">Design</tspan></text>
+    <ellipse id="Mask" cx="15.5" cy="16" rx="15.5" ry="16" transform="translate(713 760)" fill="#ff7052"/>
+    <g id="speaker-01" transform="translate(720.075 768.666)">
+      <path id="Shape" d="M2.932,14.667a.922.922,0,0,1-.977-.977V10.076L.684,9.783A1.176,1.176,0,0,1,0,8.806V4.9a1.178,1.178,0,0,1,.684-.977L14.365.015a1.02,1.02,0,0,1,1.27.977V12.616a1.009,1.009,0,0,1-1.27.977L8.8,12.029V13.69a.922.922,0,0,1-.977.977Z" transform="translate(0 0)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

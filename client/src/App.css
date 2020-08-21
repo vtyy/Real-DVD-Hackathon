@@ -4,12 +4,13 @@
 }
 * {
   font-family: SFProDisplay;
+  background-image: './Assets/BG.svg';
 }
 .App {
   font-family: SFProDisplay;
   text-align: center;
-  
-}
+  background-image: './Assets/BG.svg'
+} 
 
 .App-logo {
   height: 40vmin;
