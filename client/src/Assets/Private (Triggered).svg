@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="241" height="40" viewBox="0 0 241 40">
+  <g id="Group_85" data-name="Group 85" transform="translate(-971 -532)">
+    <g id="Rectangle_163" data-name="Rectangle 163" transform="translate(971 532)" fill="#858686" stroke="#ecf3f0" stroke-width="3">
+      <rect width="241" height="40" rx="20" stroke="none"/>
+      <rect x="1.5" y="1.5" width="238" height="37" rx="18.5" fill="none"/>
+    </g>
+    <text id="PRIVATE" transform="translate(1091 559)" fill="#fbfcfc" font-size="18" font-family="SegoeUI-Semibold, Segoe UI" font-weight="600" letter-spacing="0.05em"><tspan x="-36.498" y="0">PRIVATE</tspan></text>
+  </g>
+</svg>
