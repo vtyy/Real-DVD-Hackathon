@@ -1,7 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
 const url = require('url'); 
-const mysql = require('mysql');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -12,23 +11,15 @@ var testAPIRouter = require('./routes/testAPI');
 var getAllPublicRouter = require('./routes/getallpublic');
 var isValidRouter = require('./routes/isvalid');
 var setUrlRouter = require('./routes/seturl');
+var db = require('./db');
 var app = express();
 
 // mysql connection
 
-var con = mysql.createConnection({
-  host:"localhost",
-  user:"root",
-  password: "admin",
-  database: 'nushlink'
-})
 
-con.connect(function (err){
-  if (err) throw err;
-  console.log("Connected!");
-});
-con.query('CREATE TABLE IF NOT EXISTS `url` (`urlid` int NOT NULL AUTO_INCREMENT,`originalurl` varchar(2000) NOT NULL,`redirecturl` varchar(2000) NOT NULL,PRIMARY KEY(`urlid`))')
-con.query('C')
+db.query('DROP TABLE IF EXISTS url');
+db.query('CREATE TABLE url (urlid int NOT NULL AUTO_INCREMENT,originalurl varchar(2000) NOT NULL,redirecturl varchar(2000) NOT NULL,PRIMARY KEY(urlid))')
+db.query('INSERT INTO url (originalurl,redirecturl) VALUES ("www.nushigh.edu.sg", "goodschool")');
 
 
 // view engine setup
@@ -51,13 +42,16 @@ app.use('/seturl', setUrlRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  console.log("checking if database have the url");
   var query_string = url.parse(req.url).pathname.toString().substring(1, url.parse(req.url).pathname.length);
-  con.query("SELECT originalurl FROM url WHERE redirecturl = ?",[
+  db.query("SELECT originalurl FROM url WHERE redirecturl = ?",[
     query_string
   ],function(err, result){
     if (err) throw err;
-    console.log("Result: " + result);
+    if (result.length > 0){
+      res.send(result[0].originalurl);
+    } else {
+      res.send("Invalid url");
+    }
   });
   next();
 });
