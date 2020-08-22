@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+
 import {ReactComponent as PrivateUntriggered} from './Assets/Private (Untriggered).svg';
 import {ReactComponent as PrivateTriggered} from './Assets/Private (Triggered).svg';
 import {ReactComponent as PublicUntriggered} from './Assets/Public (Untriggered).svg';
@@ -130,7 +131,7 @@ class CreateURLButton extends React.Component{
   checkURL(){
     localStorage.setItem("CustomURL", document.getElementById('customURL').value);
     localStorage.setItem("StartURL", document.getElementById('startURL').value);
-    
+
     window.location.href = "./output";
   }
   render() {
@@ -151,6 +152,7 @@ class Home extends React.Component{
   
 
   render() {
+    
     return (
       <div>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"></link>
