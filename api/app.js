@@ -9,17 +9,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
 var getAllPublicRouter = require('./routes/getallpublic');
-var isValidRouter = require('./routes/isvalid');
+var isValidOriginalRouter = require('./routes/isvalidoriginal');
+var isValidDirectRouter = require('./routes/isvalidredirect');
 var setUrlRouter = require('./routes/seturl');
-var db = require('./db');
+var getRedirectRouter = require('./routes/getredirect');
 var app = express();
-
-// mysql connection
-
-
-db.query('DROP TABLE IF EXISTS url');
-db.query('CREATE TABLE url (urlid int NOT NULL AUTO_INCREMENT,originalurl varchar(2000) NOT NULL,redirecturl varchar(2000) NOT NULL,PRIMARY KEY(urlid))')
-db.query('INSERT INTO url (originalurl,redirecturl) VALUES ("www.nushigh.edu.sg", "goodschool")');
 
 
 // view engine setup
@@ -33,26 +27,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//mysqllib.executeQuery('DROP TABLE IF EXISTS url');
+//mysqllib.executeQuery('CREATE TABLE url (urlid int NOT NULL AUTO_INCREMENT,originalurl varchar(255) NOT NULL,redirecturl varchar(255) NOT NULL UNIQUE,PRIMARY KEY(urlid))');
+//mysqllib.executeQuery('INSERT INTO url (originalurl,redirecturl) VALUES ("www.nushigh.edu.sg", "goodschool")');
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/getallpublic', getAllPublicRouter);
-app.use('/isvalid', isValidRouter);
+app.use('/isvalidoriginal', isValidOriginalRouter);
+app.use('/isvalidredirect', isValidDirectRouter);
 app.use('/seturl', setUrlRouter);
+app.use('/getredirect', getRedirectRouter);
 
-// catch 404 and forward to error handler
+// catch general cases
 app.use(function(req, res, next) {
-  var query_string = url.parse(req.url).pathname.toString().substring(1, url.parse(req.url).pathname.length);
-  db.query("SELECT originalurl FROM url WHERE redirecturl = ?",[
-    query_string
-  ],function(err, result){
-    if (err) throw err;
-    if (result.length > 0){
-      res.send(result[0].originalurl);
-    } else {
-      res.send("Invalid url");
-    }
-  });
   next();
 });
 
