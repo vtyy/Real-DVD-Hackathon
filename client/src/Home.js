@@ -128,7 +128,8 @@ class CreateURLButton extends React.Component{
     
   } 
   checkURL(){
-    window.location.href = "./Output"
+    localStorage.setItem("CustomURL", document.getElementById('customURL').value);
+    window.location.href = "./output";
   }
   render() {
     return (<a style={{textAlign: 'center',display: 'block',}} onClick={() => this.checkURL()}><CreateURL/></a>);
@@ -142,7 +143,8 @@ class Home extends React.Component{
   }
 
   goNext(){
-    window.location.href = "./Output.js"
+
+    window.location.href = "./Output.js?customurl=" + encodeURIComponent(document.getElementById('customURL').value);
   }
   
 
@@ -165,7 +167,7 @@ class Home extends React.Component{
             <input type="text" id="startURL"></input>
           </div>
           <div class="col-4">
-            <p>https://nush.link/<input type="text"></input></p>
+            <p>https://nush.link/<input type="text" id="customURL"></input></p>
           </div>
         </div>
         <p></p>
