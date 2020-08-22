@@ -31,7 +31,7 @@ async function executeQuery (query) {
             reject(e);
             }
             else{
-            console.log(r,f)
+            //console.log(r,f)
             resolve(r);
             }
         });
