@@ -8,10 +8,16 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
    mysqllib.executeQuery('DROP TABLE IF EXISTS url')
    .then(function(){
-      mysqllib.executeQuery('CREATE TABLE url (urlid int NOT NULL AUTO_INCREMENT,originalurl varchar(255) NOT NULL,redirecturl varchar(255) NOT NULL UNIQUE,PRIMARY KEY(urlid))');
+      mysqllib.executeQuery('CREATE TABLE url (urlid int NOT NULL AUTO_INCREMENT, originalurl varchar(255) NOT NULL, redirecturl varchar(255) NOT NULL UNIQUE, privateurl int(1) NOT NULL, tag varchar(255) NOT NULL, likes int NOT NULL,PRIMARY KEY(urlid))');
    })
    .then(function(){
-      mysqllib.executeQuery('INSERT INTO url (originalurl, redirecturl) VALUES ("www.nushigh.edu.sg", "goodschool")');
+      mysqllib.executeQuery('INSERT INTO url (originalurl, redirecturl, privateurl, tag, likes) VALUES ("http://www.nushigh.edu.sg", "goodschool", 1, "Science", 1000)');
+   })
+   .then(function(){
+      mysqllib.executeQuery('INSERT INTO url (originalurl, redirecturl, privateurl, tag, likes) VALUES ("https://www.gov.sg", "government", 0, "Others", 0)');
+   })
+   .then (function (){
+      mysqllib.executeQuery('INSERT INTO url (originalurl, redirecturl, privateurl, tag, likes) VALUES ("http://www.reddit.com", "goodmemes", 0, "Others", 1337)');
    });
    res.send("completed setup")
 });
