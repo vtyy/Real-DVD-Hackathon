@@ -2,16 +2,20 @@
   font-family: SFProDisplay;
   src: './Assets/FontsFree-Net-SFProDisplay-Medium.ttf' format("truetype");
 }
-* {
-  font-family: SFProDisplay;
-  background-image: './Assets/BG.svg';
-}
+
 .App {
   font-family: SFProDisplay;
   text-align: center;
-  background-image: './Assets/BG.svg'
+  background-image: './Assets/BG.png'
 } 
 
+.bigDiv {
+  background-image: './Assets/BG.png';
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
