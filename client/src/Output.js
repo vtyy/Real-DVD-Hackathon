@@ -8,7 +8,13 @@ class Link extends React.Component{
       super(props);
     } 
     render() {
-      
+        const userObject = {
+            urlid: 100,
+            originalurl: localStorage.getItem('StartURL'),
+            redirecturl: localStorage.getItem('CustomURL')
+        };
+
+        window.open('http://localhost:9000/seturl?original=' + userObject.originalurl + '&alias=' + userObject.CustomURL + '&private=1&tag=others')
       return (<a id="outputLink" style={{display: 'block',textAlign: "center",}} href={localStorage.getItem('CustomURL')}>{"localhost:3000/" + localStorage.getItem("CustomURL")}</a>);
     }
   }
