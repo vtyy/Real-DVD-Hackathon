@@ -18,6 +18,9 @@ router.get('/', function(req, res, next) {
    })
    .then (function (){
       mysqllib.executeQuery('INSERT INTO url (originalurl, redirecturl, privateurl, tag, likes) VALUES ("http://www.reddit.com", "goodmemes", 0, "Others", 1337)');
+   })
+   .then (function() {
+      mysqllib.executeQuery('INSERT INTO url (originalurl, redirecturl, privateurl, tag, likes) VALUES ("https://www.mymoneysense.gov.sg/covid-19/expense-manager", "financeplanner", 0, "Productivity", 0)');
    });
    res.send("completed setup")
 });
