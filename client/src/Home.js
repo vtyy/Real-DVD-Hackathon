@@ -129,6 +129,8 @@ class CreateURLButton extends React.Component{
   } 
   checkURL(){
     localStorage.setItem("CustomURL", document.getElementById('customURL').value);
+    localStorage.setItem("StartURL", document.getElementById('startURL').value);
+    
     window.location.href = "./output";
   }
   render() {

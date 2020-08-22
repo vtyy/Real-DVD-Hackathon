@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
 import {ReactComponent as Refresh} from './Assets/refresh.svg';
+
+const API = 'https://hn.algolia.com/api/v1/search?query=';
+
 class Link extends React.Component{
     constructor(props) {
       super(props);
     } 
     render() {
+        fetch(API)
+          .then(response => response.json())
+          .then(data => this.setState({ hits: data.hits, isLoading: false }));
       return (<a id="outputLink" style={{display: 'block',textAlign: "center",}} href={localStorage.getItem('CustomURL')}>{localStorage.getItem("CustomURL")}</a>);
     }
   }
