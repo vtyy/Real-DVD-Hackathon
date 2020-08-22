@@ -15,6 +15,7 @@ var isValidDirectRouter = require('./routes/isvalidredirect');
 var setUrlRouter = require('./routes/seturl');
 var getRedirectRouter = require('./routes/getredirect');
 var setUpDatabaseRouter = require('./routes/setupdatabase');
+var viewDatabaseRouter = require('./routes/viewdatabase');
 var app = express();
 
 
@@ -39,6 +40,7 @@ app.use('/isvalidredirect', isValidDirectRouter);
 app.use('/seturl', setUrlRouter);
 app.use('/getredirect', getRedirectRouter);
 app.use('/setupdatabase', setUpDatabaseRouter);
+app.use('/viewdatabase', viewDatabaseRouter);
 
 
 // catch general cases
