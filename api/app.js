@@ -14,6 +14,7 @@ var isValidOriginalRouter = require('./routes/isvalidoriginal');
 var isValidDirectRouter = require('./routes/isvalidredirect');
 var setUrlRouter = require('./routes/seturl');
 var getRedirectRouter = require('./routes/getredirect');
+var setUpDatabaseRouter = require('./routes/setupdatabase');
 var app = express();
 
 
@@ -28,10 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//mysqllib.executeQuery('DROP TABLE IF EXISTS url');
-//mysqllib.executeQuery('CREATE TABLE url (urlid int NOT NULL AUTO_INCREMENT,originalurl varchar(255) NOT NULL,redirecturl varchar(255) NOT NULL UNIQUE,PRIMARY KEY(urlid))');
-//mysqllib.executeQuery('INSERT INTO url (originalurl,redirecturl) VALUES ("www.nushigh.edu.sg", "goodschool")');
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
@@ -41,6 +38,8 @@ app.use('/isvalidoriginal', isValidOriginalRouter);
 app.use('/isvalidredirect', isValidDirectRouter);
 app.use('/seturl', setUrlRouter);
 app.use('/getredirect', getRedirectRouter);
+app.use('/setupdatabase', setUpDatabaseRouter);
+
 
 // catch general cases
 app.use(function(req, res, next) {

@@ -1,6 +1,7 @@
 var express = require('express');
 var mysqllib = require('../db');
 var mysql = require('mysql');
+var validUrl = require('valid-url');
 var router = express.Router();
 
 /* GET home page. */
@@ -17,15 +18,27 @@ router.get('/', function(req, res, next) {
   var private = req.query.private;
   var tag1 = req.query.tag1;
   var tag2 = req.query.tag2;
-  
-  query_string = "SELECT originalurl FROM url WHERE redirecturl = " + mysql.escape(alias);
-  mysqllib.executeQuery(query_string).then(function(result){
-        if (result.length > 0){
-        res.send(result[0].originalurl);
+
+  //error checking
+  if(alias && original){
+    if ((alias.match(/^([0-9]|[a-z])+([0-9a-z]+)$/i)) && validUrl.isUri(original)){ // check if alias is alphanumeric and url is valid
+      //check if alias is not in database
+        mysqllib.executeQuery("SELECT originalurl FROM url WHERE redirecturl = " + mysql.escape(alias)).then(function(result){
+        if (result.length == 0){
+          query_string = "INSERT INTO url (originalurl, redirecturl) VALUES (" + mysql.escape(original) + ", " + mysql.escape(alias)+ ")"
+          mysqllib.executeQuery(query_string).then(function(result){
+              res.send('1');
+          });
         } else {
-        res.send("invalid url");
+          res.send('0');
         }
-    });
+      });
+    } else {
+      res.send('0');
+    }
+  } else {
+    res.send('0');
+  }
 
 
 });
